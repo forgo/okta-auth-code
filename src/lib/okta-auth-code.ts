@@ -29,6 +29,7 @@ export function createAuthCode<JWT, User = unknown>(
   // initialize context values
   const AuthCodeContext = createContext<AuthCodeContextState<JWT, User>>({
     isLoggedIn: false,
+    jwt: undefined,
     user: undefined,
     logout: (): void => undefined,
   });

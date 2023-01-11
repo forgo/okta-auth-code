@@ -1,6 +1,6 @@
 {
   "name": "@forgo/okta-auth-code",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Dead-simple TypeScript React Context factory to implement Okta Authorization Code with PKCE flow for your browser app.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
