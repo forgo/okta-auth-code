@@ -41,7 +41,7 @@ export {
 - By default the `user` returned from `useAuth` will be the raw decoded JWT token.
 - If you do not specify the generic `JWT` type, it will be typed as `unknown`.
 - To transform `user` to type `User`, specify a second generic param and an async `getUser` function.
-- The `createAuthCodeApi` is provided to simplify tokenized requests to extend user info
+- The `createApi` factory is provided to simplify tokenized requests to extend user info
 - Returning `undefined` from `getUser` will fallback the `user` in context to the decoded JWT token.
 
 ```typescript
