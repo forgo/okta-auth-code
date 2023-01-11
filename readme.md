@@ -4,6 +4,13 @@
 
 Dead-simple TypeScript React Context factory to implement Okta Authorization Code with PKCE flow for your browser app.
 
+## Notes
+- This project evolved from me not wanting to perpetually re-invent security.
+- My concern is moving past security to the more fun work as quickly as possible.
+- I'm not a fan of vendor lock-in, but Okta is pretty ubiquitous.
+- This could easily be adapted for non-Okta identity providers who align closely with OAuth specs.
+- I am open to PRs which maintain the existing simple interface.
+
 ## Installation
 
 `npm install @forgo/okta-auth-code` or `yarn add @forgo/okta-auth-code`
