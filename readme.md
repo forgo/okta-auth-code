@@ -38,11 +38,16 @@ export {
 ```
 
 ### Optionally Transform JWT to Custom User Type
-- By default the `user` returned from `useAuth` will be the raw decoded JWT token.
-- If you do not specify the generic `JWT` type, it will be typed as `unknown`.
-- To transform `user` to type `User`, specify a second generic param and an async `getUser` function.
-- The `createApi` factory is provided to simplify tokenized requests to extend user info
-- Returning `undefined` from `getUser` will fallback to the decoded JWT token, if possible.
+
+#### JSON Web Token
+- The `jwt` returned from `useAuth` will be the raw decoded JWT token.
+- If `JWT` type is unspecified, `jwt` will be typed as `unknown`.
+
+#### Custom User
+- The `createApi` factory can help securely request additional user info
+- The `user` returned from `useAuth` will be `undefined` by default.
+- If `User` type is unspecified, `user` will be typed as `unknown`.
+- `getUser` should return `Promise<User | undefined>`
 
 ```typescript
 export type User = {

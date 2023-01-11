@@ -33,7 +33,10 @@ export const createAuthCodeProvider =
   }: AuthCodeProviderProps<JWT, User>): JSX.Element => {
     const { okta, getUser } = config;
 
-    const [user, setUser] = useState<JWT | User | undefined>();
+    const [state, setState] = useState<{ jwt?: JWT; user?: User }>({
+      jwt: undefined,
+      user: undefined,
+    });
 
     // subscribe to session storage changes so we can pick up any token updates
     const [authTokens] = useSessionStorage(KEY_TOKENS, {
@@ -70,9 +73,15 @@ export const createAuthCodeProvider =
             createApi,
             jwt,
           });
-          setUser(userUpdated ?? jwt);
+          setState({
+            jwt,
+            user: userUpdated,
+          });
         } else {
-          setUser(jwt);
+          setState({
+            jwt,
+            user: undefined,
+          });
         }
       };
       fetchUser();
@@ -86,7 +95,8 @@ export const createAuthCodeProvider =
       return (
         <AuthCodeContext.Provider
           value={{
-            user,
+            jwt: state.jwt,
+            user: state.user,
             isLoggedIn,
             logout: () => logout(okta),
           }}

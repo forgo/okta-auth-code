@@ -1,5 +1,6 @@
 export type AuthCodeContextState<JWT, User = unknown> = {
   isLoggedIn: boolean;
-  user?: JWT | User;
+  jwt?: JWT;
+  user?: User;
   logout: () => void;
 };
