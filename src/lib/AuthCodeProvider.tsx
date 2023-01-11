@@ -70,7 +70,7 @@ export const createAuthCodeProvider =
             createApi,
             jwt,
           });
-          setUser(userUpdated);
+          setUser(userUpdated ?? jwt);
         } else {
           setUser(jwt);
         }
