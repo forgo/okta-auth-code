@@ -52,24 +52,24 @@ export type User = {
 }
 
 const auth = createAuthCode<JWT, User>({
-    ...,
-    getUser: async ({ jwt, createApi }) => {
-        if (jwt) {
-            const api = createApi({
-            baseURL: "https://elliott.software/api",
-            });
+  ...,
+  getUser: async ({ jwt, createApi }) => {
+    if (jwt) {
+      const api = createApi({
+        baseURL: "https://elliott.software/api",
+      });
 
-            const { data: userInfo } = await api.request({ url: `/user-info/${id}`})
+      const { data: userInfo } = await api.request({ url: `/user-info/${id}`})
 
-            // should return `User` type or undefined
-            return {
-                id: jwt?.id,
-                email: jwt?.email,
-                role: userInfo?.role,
-            };
-        }
-        return undefined;
-    },
+      // should return `User` type or undefined
+      return {
+        id: jwt?.id,
+        email: jwt?.email,
+        role: userInfo?.role,
+      };
+    }
+    return undefined;
+  },
 });
 ```
 
