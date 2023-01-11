@@ -22,7 +22,7 @@ export type JWT = {
   id?: string;
 };
 
-const { AuthCodeProvider, createAuthCodeApi, useAuth } = createAuthCode<JWT>({
+const { AuthCodeProvider, createApi, useAuth } = createAuthCode<JWT>({
   okta: {
     clientId: env.OKTA_CLIENT_ID,
     baseURL: env.OKTA_BASE_URL,
